@@ -9,7 +9,7 @@ public class GmailServiceAdapterImpl implements GmailServiceAdapter {
 
     @Override
     public boolean register(String mail,String password){
-        return true;
+        return gmailService.register(mail,password);
     }
     }
 
