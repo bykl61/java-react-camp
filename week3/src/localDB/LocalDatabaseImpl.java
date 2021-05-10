@@ -2,13 +2,11 @@ package localDB;
 
 import entities.UserEntity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class LocalDatabaseImpl  {
+public class LocalDatabaseImpl {
 
-    static HashMap<String,String> list = new HashMap<>();
+    static HashMap<String, String> list = new HashMap<>();
 
 
     public static void save(UserEntity userEntity) {
@@ -17,7 +15,7 @@ public class LocalDatabaseImpl  {
         System.out.println(userEntity.getFirstName() + " saved to db");
     }
 
-    public static HashMap<String,String> list(){
+    public static HashMap<String, String> list() {
         return list;
     }
 }

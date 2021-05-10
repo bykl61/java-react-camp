@@ -18,11 +18,11 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void update(UserEntity userEntity) {
-        System.out.println(userEntity.getFirstName() +" updated to db");
+        System.out.println(userEntity.getFirstName() + " updated to db");
     }
 
     @Override
     public void delete(UserEntity userEntity) {
-        System.out.println(userEntity.getFirstName() +" deleted to db");
+        System.out.println(userEntity.getFirstName() + " deleted to db");
     }
 }

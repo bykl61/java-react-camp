@@ -1,7 +1,6 @@
 package core.impl;
 
 import core.GmailServiceAdapter;
-import entities.UserEntity;
 import gmailService.GmailService;
 
 public class GmailServiceAdapterImpl implements GmailServiceAdapter {
