@@ -1,13 +1,14 @@
-package base;
+package entities;
 
-public class BaseAbstractEntity implements BaseEntity{
+public class LoginDTO  {
+
     private String email;
     private String password;
 
-    public BaseAbstractEntity() {
+    public LoginDTO() {
     }
 
-    public BaseAbstractEntity(String email, String password) {
+    public LoginDTO(String email, String password) {
         this.email = email;
         this.password = password;
     }

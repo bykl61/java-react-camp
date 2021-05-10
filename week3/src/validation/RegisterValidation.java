@@ -2,7 +2,7 @@ package validation;
 
 import entities.UserEntity;
 
-public interface RegisterValidaiton {
+public interface RegisterValidation extends BaseRegisterValidation{
 
     boolean checkName(UserEntity userEntity);
 
@@ -11,4 +11,5 @@ public interface RegisterValidaiton {
     boolean checkEmailFormat(UserEntity userEntity);
 
     boolean isExistEmail(UserEntity userEntity);
+
 }

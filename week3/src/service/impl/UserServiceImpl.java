@@ -3,15 +3,19 @@ package service.impl;
 import entities.UserEntity;
 import repository.UserRepository;
 import repository.impl.UserRepositoryImpl;
+import service.EmailVerification;
 import service.UserService;
-import validation.RegisterValidaiton;
-import validation.impl.RegisterValidaitonImpl;
+import validation.BaseRegisterValidation;
 
 public class UserServiceImpl implements UserService {
 
-    private final RegisterValidaiton validation = new RegisterValidaitonImpl();
-    private  UserRepository userRepository = new UserRepositoryImpl();
+    private final BaseRegisterValidation validation;
+    private final UserRepository userRepository = new UserRepositoryImpl();
+    private final EmailVerification mailValidaiton = new EmailVerificationImpl();
 
+    public UserServiceImpl(BaseRegisterValidation validation) {
+        this.validation = validation;
+    }
 
     @Override
     public void list() {
@@ -20,16 +24,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void create(UserEntity userEntity) {
-        if (validation.checkName(userEntity))
-            System.out.println("İsim ve Soyisim 2 karakterden kısa olamaz");
-        else if(validation.checkPassword(userEntity))
-            System.out.println("Paralo 6 karakterden kısa olamaz");
-        else if (validation.checkEmailFormat(userEntity))
-             System.out.println("Email formatı yanlış");
-        else if (validation.isExistEmail(userEntity))
-            System.out.println("Bu email zaten sisteme kayıtlı");
-        else
+        if (!validation.checkAll(userEntity))
+            System.out.println("Tekrar Deneyiniz...");
+        else{
+            mailValidaiton.sendMailValidation();
             userRepository.create(userEntity);
+            System.out.println("Başarılı bir şekilde kayıt olundu");
+        }
+
 
     }
 

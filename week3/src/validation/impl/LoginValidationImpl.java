@@ -1,13 +1,17 @@
 package validation.impl;
 
-import entities.LoginEntity;
-import localDB.impl.LocalDatabaseImpl;
+import entities.LoginDTO;
+import localDB.LocalDatabaseImpl;
 import validation.LoginValidation;
+
+import java.util.HashMap;
 
 public class LoginValidationImpl implements LoginValidation {
     @Override
-    public boolean checkLogin(LoginEntity entity) {
-        LocalDatabaseImpl.list();
-        return false;
+    public boolean checkLogin(LoginDTO entity) {
+        HashMap<String,String> list = LocalDatabaseImpl.list();
+        if(list.containsKey(entity.getEmail()) && list.containsValue(entity.getPassword()))
+            return false;
+        return true;
     }
 }

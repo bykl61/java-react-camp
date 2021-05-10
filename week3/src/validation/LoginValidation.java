@@ -1,7 +1,7 @@
 package validation;
 
-import entities.LoginEntity;
+import entities.LoginDTO;
 
 public interface LoginValidation {
-    boolean checkLogin(LoginEntity entity);
+    boolean checkLogin(LoginDTO entity);
 }

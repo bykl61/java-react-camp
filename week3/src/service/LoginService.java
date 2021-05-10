@@ -1,7 +1,7 @@
 package service;
 
-import entities.LoginEntity;
+import entities.LoginDTO;
 
 public interface LoginService {
-    void login(LoginEntity entity);
+    void login(LoginDTO entity);
 }

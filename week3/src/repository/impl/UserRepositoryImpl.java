@@ -1,7 +1,7 @@
 package repository.impl;
 
 import entities.UserEntity;
-import localDB.impl.LocalDatabaseImpl;
+import localDB.LocalDatabaseImpl;
 import repository.UserRepository;
 
 public class UserRepositoryImpl implements UserRepository {
