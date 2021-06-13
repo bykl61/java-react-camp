@@ -16,7 +16,7 @@ public class JobPositionController {
 
     private final JobPositonService jobPositonService;
 
-    @GetMapping
+    @GetMapping("/getAll")
     public Collection<JobPosition> list(){
        return jobPositonService.list();
     }
